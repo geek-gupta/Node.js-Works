@@ -1,0 +1,15 @@
+{{> header}}
+
+<h2>{{campground.name}}</h2>
+<img src="{{campground.image}}" alt="">
+<p>{{campground.description}}</p>
+
+<p>
+  <a class="btn btn-success" href="/campgrounds/{{campground._id}}/comments/new">Add New Comment</a>
+</p>
+
+{{#each campground.comments}}
+  <p>{{this.author}}-{{this.text}}</p>
+{{/each}}
+
+{{> footer}}
