@@ -1,0 +1,39 @@
+systemctl enable mongod.service >> Start mogodb services
+
+
+-----------------------------------------------------------------------------
+
+We cannot send a PUT request from html form so we install a new npm module for doing that:
+
+Name: method-override
+Require it and then 
+app.ue(methodOverride('_method'));
+
+here _method is the name which methodOverride will look for.
+
+in action of form, we send like this: 
+
+action = 'blogs/:id?_method=PUT
+
+
+app.put('url', (req, res) => {
+});
+
+What it does is, it maps the incoming post request and make it listen to put by overriding it
+
+-----------------------------------------------------------------------------
+
+
+
+-------------------------------------------------------------------------
+
+name: express-sanitizer
+
+require it and app.use(expressSanitizer());  and write this code after bodyParser use code.
+
+
+this module help to invalid some code in html that may create a problem for you. If you dont want a script in your blog msg then it will remove every script tag from the body.
+
+req.body.blog.body = req.sanitize(req.body.blog.body);
+
+
